@@ -39,6 +39,7 @@
             {!! $post->content !!}
 
             <hr>
+            @include('vendor.related-post')
         </div>
         @include('vendor.sidebar')
 

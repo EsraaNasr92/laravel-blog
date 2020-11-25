@@ -36,6 +36,12 @@ class PostController extends Controller
           ->take(5)
           ->get();
 
+      //related posts
+      $related_posts = Post::query()->where('is_published',true)->whereHas('tags', function ($q) use ($post) {
+          return $q->whereIn('name', $post->tags->pluck('name'));
+      })
+          ->where('id', '!=', $post->id)->take(3)->get();
+
       //return the data to the corresponding view
       return view('post', [
           //'website' => $website,
@@ -43,8 +49,8 @@ class PostController extends Controller
           'categories' => $categories,
           'tags' => $tags,
           'recent_posts' => $recent_posts,
+          'related_posts' => $related_posts,
       ]);
-
 
   }
 
