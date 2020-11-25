@@ -44,6 +44,9 @@ class IndexController extends Controller
         ->take(5)
         ->get();
 
+   // pagination
+   $posts = Post::where('is_published',true)->orderBy('id','desc')->paginate(2);
+
         //return the data to the corresponding view
         return view('home', [
             //'website' => $website,
@@ -54,8 +57,6 @@ class IndexController extends Controller
             'recent_posts' => $recent_posts
           ]);
 
-      //Add paginator
-      $posts = Post::where('is_published',true)->orderBy('id','desc')->paginate(2);
 
     }
 }
