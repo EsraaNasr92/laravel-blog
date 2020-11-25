@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
     <link href="{{asset('vendor/css/mystyle.css')}}" rel="stylesheet">
+    <style>
+      #header{
+        margin-top: 40px;
+      }
+      .w-5.h-5 {
+          width: 20px;
+      }
+      .pagination p.text-sm {
+          display: none;
+      }
+    </style>
 </head>
 
 <body>
